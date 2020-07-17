@@ -1,0 +1,20 @@
+@import '~antd/dist/antd.css';
+
+.todo-title {
+  text-align: center;
+  margin-top: 50px;
+  text-transform: uppercase;
+  font-weight: bold !important;
+  color: #0092ff !important;
+}
+
+.todo-container {  
+  height: 100vh;
+  background: rgb(0, 174, 204);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.todo-wrapper {
+  padding: 8px;
+}

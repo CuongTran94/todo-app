@@ -1,0 +1,43 @@
+.task {
+	&-item {
+		border-bottom: none;
+	    margin-bottom: 10px;
+	    padding: 8px 8px !important;
+	    border-radius: 3px;
+	    cursor: pointer;
+	    background: #fff;
+    	box-shadow: 0 1px 0 rgba(9,30,66,.10);
+
+	    &-delete {
+	    	color: #ff4d4f;
+
+	    	&:hover {
+	    		color: #ff4d4f;
+	    	}
+	    }
+	}
+
+	&-form {
+		width: 100%;
+
+		&-text {
+			resize: none;
+			overflow: hidden;
+			margin-bottom: 10px !important;
+		}
+	}
+
+	&-time {
+		font-size: 11px;
+    	color: #5e6c84;
+	}
+
+	&-content {
+		font-size: 16px;
+		color: #172b4d;
+	}
+}
+
+.ant-list-split .ant-list-item:last-child {
+	border-bottom: 1px solid #f0f0f0 !important;
+}
