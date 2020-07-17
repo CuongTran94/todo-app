@@ -65,7 +65,7 @@ const todoReducer = (state = initialState, action) => {
 			const newList = [...state.todoList];
 			const tempList = newList.filter(item => item.id === action.payload.listId)[0];
 			
-			const newTask = tempList.task.map(item => item.id === action.payload.taskId ? {...item, content: action.payload.content.text} : item);
+			const newTask = tempList.task.map(item => item.id === action.payload.taskId ? {...item, content: action.payload.content} : item);
 			
 			const newState = newList.map(list => {
 				if(list.id === action.payload.listId) {

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { v1 as uuid } from 'uuid';
 import { FormInstance } from 'antd/lib/form';
+import PropTypes from 'prop-types';
 import './style.scss';
 
 const { TextArea } = Input;
@@ -15,19 +16,29 @@ const TaskInput = (props) => {
 	const paddingInput = list ? '8px' : '0';
 	const formRef = React.createRef();
 
-	const handleSubmit = (values) => {		
-		const newList = {
-			id: uuid(),
-			title: values.text,
-			created: new Date().toLocaleString()
-		};
+	const handleSubmit = (values) => {
 		
-		onSubmitList(newList);
-		handleClose();
+		if(typeof(values.text) !== 'undefined' && values.text.trim() !== "" && onSubmitList) {
+			const newList = {
+				id: uuid(),
+				title: values.text.trim(),
+				created: new Date().toLocaleString()
+			};
+			
+			onSubmitList(newList);
+			handleClose();
+			
+		}
+		else {
+			return;
+		}		
 	};
 
 	const handleClose = () => {
-		onCloseForm();
+		if(onCloseForm){
+			onCloseForm();
+		}
+		
 	}
 
 	return (
@@ -48,5 +59,17 @@ const TaskInput = (props) => {
 		</Form>
 	);
 }
+
+TaskInput.propTypes = {
+	onCloseForm: PropTypes.func,
+	onSubmitList: PropTypes.func,
+	list: PropTypes.string
+};
+
+TaskInput.defaultProps = {
+	onCloseForm: null,
+	onSubmitList: null,
+	list: null
+};
 
 export default TaskInput;

@@ -3,6 +3,7 @@ import { List, Form, Input, Button } from 'antd';
 import { CalendarOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 import './style.scss';
 
 const { TextArea } = Input;
@@ -12,7 +13,9 @@ const TaskItem = (props) => {
 	const [isEdit, setIsEdit] = useState('');
 
 	const handleRemoveTask = (taskId) => {
-		onRemoveTask(taskId);
+		if(onRemoveTask) {
+			onRemoveTask(taskId);
+		}		
 	};
 
 	const handleChangeEdit = (taskId) => {
@@ -20,8 +23,12 @@ const TaskItem = (props) => {
 	};
 
 	const handleSubmit = (value) => {
-		onUpdateTask(isEdit, value);
-		setIsEdit('');
+		if(typeof(value.text) !== 'undefined' && value.text.trim() !== "" && onUpdateTask) {
+			onUpdateTask(isEdit, value.text.trim());
+			setIsEdit('');
+		} else {
+			return;
+		}
 	};
 
 	return (
@@ -72,5 +79,17 @@ const TaskItem = (props) => {
 		/>
 	);
 }
+
+TaskItem.propTypes = {
+	onRemoveTask: PropTypes.func,
+	onUpdateTask: PropTypes.func,
+	cards: PropTypes.array
+};
+
+TaskItem.defaultProps = {
+	onRemoveTask: null,
+	onUpdateTask: null,
+	cards: []
+};
 
 export default TaskItem;

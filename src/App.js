@@ -12,7 +12,6 @@ function App() {
   // state to management task and show column
   const todoList = useSelector(state => state.todo.todoList);
 
-  
   return (
     <div className="todo-container">
       <div className="todo-wrapper">

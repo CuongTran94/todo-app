@@ -5,6 +5,7 @@ import TaskInput from '../TaskInput';
 import { useDispatch } from 'react-redux';
 import { CartTextContainer, CartAddText } from './style';
 import { addNewList, addNewTask } from '../../actions/todo';
+import PropTypes from 'prop-types';
 
 const ActionButton = (props) => {
 	const { list, listId } = props;
@@ -44,5 +45,15 @@ const ActionButton = (props) => {
 	}
 	
 }
+
+ActionButton.propTypes = {
+	list: PropTypes.string,
+	listId: PropTypes.string,
+};
+
+ActionButton.defaultProps = {
+	list: null,
+	listId: null
+};
 
 export default ActionButton;

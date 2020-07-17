@@ -7,6 +7,7 @@ import { EllipsisOutlined } from '@ant-design/icons';
 import TaskItem from '../TaskItem';
 import TaskInput from '../TaskInput';
 import ActionButton from '../ActionButton';
+import PropTypes from 'prop-types';
 import './style.scss';
 
 const { Title } = Typography;
@@ -55,5 +56,15 @@ const TaskCol = (props) => {
 		</Col>
 	);
 }
+
+TaskCol.propTypes = {
+	title: PropTypes.string.isRequired,
+	cards: PropTypes.array,
+	listId: PropTypes.string.isRequired
+};
+
+TaskCol.defaultProps = {
+	cards: [],
+};
 
 export default TaskCol;
