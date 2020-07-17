@@ -29,7 +29,7 @@ const TaskItem = (props) => {
 			itemLayout="horizontal"
 			dataSource={cards}
 			className="task" 
-			locale={{emptyText: "."}}
+			locale={{emptyText: " "}}
 			renderItem={item => {
 				if(item.id === isEdit) {
 					return (

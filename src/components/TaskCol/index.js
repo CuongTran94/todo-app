@@ -36,15 +36,6 @@ const TaskCol = (props) => {
 		dispatch(action);
 	}
 
-	/*const handleCloseInputTask = (card) => {
-		const action = setActiveForm(card);
-      	dispatch(action);
-	}*/
-
-	/*const handleNewTask = (task) => {
-		const action = addNewTask(task);
-		dispatch(action);
-	}*/
 
 	return (
 		<Col 
@@ -59,12 +50,7 @@ const TaskCol = (props) => {
 			>
 				<TaskItem cards={cards} onRemoveTask={handleRemoveTask} onUpdateTask={handleEditTask}  />
 				<ActionButton listId={listId} />
-				{/*<TaskInput 
-					isShow={card.isShowInput} 
-					card={card} 
-					onCloseInput={handleCloseInputTask} 
-					onSubmit={handleNewTask}
-				/>*/}
+				
 			</Card>
 		</Col>
 	);

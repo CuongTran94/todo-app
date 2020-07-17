@@ -3,32 +3,17 @@ import { Form, Input, Button } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { v1 as uuid } from 'uuid';
+import { FormInstance } from 'antd/lib/form';
 import './style.scss';
 
 const { TextArea } = Input;
 
 const TaskInput = (props) => {
 	const { onCloseForm, onSubmitList, list } = props;
-	//console.log(props);
-	/*const { isShow, card, onCloseInput, onSubmit } = props;
 
-	const handleSubmit = (values) => {
-		const newTask = {
-			id: uuid(),
-			content: values.task,
-			time: new Date().toLocaleString()
-		};
-		onSubmit(values);
-	};
-
-	const handleClose = (card) => {
-		const newStatus = {
-			id: card.id,
-			status: false
-		};
-
-		onCloseInput(newStatus);
-	}*/
+	const marginBtn = list ? '0' : '8px';
+	const paddingInput = list ? '8px' : '0';
+	const formRef = React.createRef();
 
 	const handleSubmit = (values) => {		
 		const newList = {
@@ -38,6 +23,7 @@ const TaskInput = (props) => {
 		};
 		
 		onSubmitList(newList);
+		handleClose();
 	};
 
 	const handleClose = () => {
@@ -47,11 +33,13 @@ const TaskInput = (props) => {
 	return (
 		<Form 			
 			onFinish={handleSubmit}
+			className="form-task"
+			style={{padding: paddingInput}}
 		>	
-			<Form.Item name="text">
-				<TextArea rows={4} className="form-text" />
+			<Form.Item style={{marginBottom: marginBtn, paddingBottom: paddingInput}} name="text">
+				{list ? <Input /> : <TextArea rows={4} className="form-text" />}
 			</Form.Item>
-			<Form.Item>
+			<Form.Item style={{marginBottom: marginBtn}}>
 				<Button type="primary" htmlType="submit" className="form-btn-add">
 		          {list ? 'Add list' : 'Add cart'}
 		        </Button>

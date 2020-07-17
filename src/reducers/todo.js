@@ -1,5 +1,6 @@
 const initialState = {
-	todoList: [
+	todoList: [],
+	/*todoList: [
 		{id: 1, title: 'To do', created: '7/16/2020, 12:12:01 AM', task: [
 			{id: 1, content: 'task 1', time: '7/16/2020, 12:12:01 AM'},
 			{id: 2, content: 'task 2', time: '7/16/2020, 12:12:01 AM'},
@@ -12,7 +13,7 @@ const initialState = {
 			{id: 4, content: 'card 7', time: '8/16/2020, 12:12:01 AM'},
 	  	]},
 	  	{id: 3, title: 'Verify', created: '7/16/2020, 12:12:01 AM', task: []}
-  	]
+  	]*/
  };
 
 const todoReducer = (state = initialState, action) => {

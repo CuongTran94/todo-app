@@ -25,8 +25,7 @@ const ActionButton = (props) => {
 		dispatch(action);
 	}
 
-	const handleAddTask = (task) => {
-		console.log(listId);
+	const handleAddTask = (task) => {		
 		const action = addNewTask(listId, task);
 		dispatch(action);
 	}
